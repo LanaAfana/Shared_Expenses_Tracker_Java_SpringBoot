@@ -1,0 +1,89 @@
+<div class="step-text">
+<h5 id="description">Description</h5>
+<p>It's very exciting to have a birthday person in a friend group! You might want to get together with the rest of your friends and figure out a good gift they can chip in for, which means that the birthday person should be excluded from the bill. You can work with this in your program by excluding certain members from the calculation groups.</p>
+<p>First, let's deal with group operations. Remember that a group is basically a list of names. Here is the general syntax: <code class="java">(list of [+|-] persons | GROUPS)</code>, and here is how it works:</p>
+<ol>
+<li>Collect all the names in groups without the <code class="java">-</code> sign (<code class="java">+</code> is optional) into some temporary collection;</li>
+<li>Append persons without the<strong> </strong><code class="java">-</code> sign (<code class="java">+</code> is optional) in that temporary collection;</li>
+<li>Remove from this temporary collection all the names marked with a <code class="java">-</code> sign;</li>
+<li>Collect all the names in groups with the <code class="java">-</code> sign and remove all of them from the same temporary collection;</li>
+<li>Remove duplicates from the resulting temporary collection;</li>
+<li>Apply command (<code class="java">create|add|remove</code>) to all the people that managed to be in the evaluated temporary collection after such algorithm.</li>
+</ol>
+<p>Note that enumeration order should be ignored: first adding, then removing. </p>
+<p>Example 1: <code class="java">group remove FRIENDS (-GIRLS)</code> as well as <code class="java">group add FIENDS (-GIRLS)</code> will add/remove no one to/from the group <code class="java">FRIENDS</code> because temporary collection after points 1-5 will be empty since we never added anyone to such collection because there are no names without <code class="java">-</code> sign or with <code class="java">+</code> sign.</p>
+<p>Example 2: After <code class="java">group create BOYS (Bob, Chuck, Elon)</code> the subsequent command <code class="java">group remove FRIENDS (-BOYS, +Bob, Frank)</code> will result in the following:</p>
+<ol>
+<li>We add <code class="java">Bob</code> and <code class="java">Frank</code> to the temporary collection since they are persons without <code class="java">-</code> sign near them (point 2). Remember that <code class="java">+</code> sign is optional, and persons marked with it will have no preferences over those who don't have <code class="java">-</code> sign;</li>
+<li>We remove every person from <code class="java">BOYS</code> group from this temporary collection since it is a group with <code class="java">-</code> sign near it (point 4). <code class="java">Chuck</code> and <code class="java">Elon</code> are not in this temporary collection, so removing them makes no effect, but removing <code class="java">Bob</code> makes an effect since <code class="java">Bob</code> is in this temporary collection. After the operation, only <code class="java">Frank</code> is left in the temporary collection.</li>
+<li>We apply <code class="java">remove</code> action to everyone in the temporary collection (point 6) and as a result we remove <code class="java">Frank</code> from the <code class="java">FRIENDS</code> group.</li>
+</ol>
+<p>So, remember the order:</p>
+<ol>
+<li>First, calculate the group of persons to whom the operation will be applied to based on what is present inside parentheses.</li>
+<li>After calculation, apply an action to the calculated group of persons.</li>
+</ol>
+<h5 id="objectives">Objectives</h5>
+<p>In this stage, your program should be able to:</p>
+<ol>
+<li>Process the following commands:<br/>
+<code class="java"><strong>group </strong>[create|add|remove|show]<strong> </strong>GROUPNAME<strong> </strong>[(list of [+|-] persons | GROUPS)]</code><br/>
+<code class="java">[date] <strong>purchase </strong>Person<strong> </strong>itemName amount [(list of [+|-] persons | GROUPS)]</code></li>
+<li>Add and subtract sets of GROUPS and persons.</li>
+<li>Properly handle empty groups on the show and purchase commands. Your program should print "Group is empty" in such cases</li>
+<li>Properly handle duplicate groups: if the user tries to create a new group with the same name, you should delete the existing group first and then create a new one.</li>
+<li>Process the input numbers as money and correctly handle division.</li>
+<li>Calculate and display the list of repayments with names and amounts to be repaid.</li>
+</ol>
+<h5 id="examples">Examples</h5>
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. <br/>
+The program should print a list of commands: </p>
+<pre><code class="language-no-highlight">&gt; help
+balance
+borrow
+exit
+group
+help
+purchase
+repay</code></pre>
+<p>Group command:</p>
+<pre><code class="language-no-highlight">&gt; group create GIRLS (Ann, Diana)
+&gt; group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+&gt; group show TEAM
+Ann
+Bob
+Chuck
+Diana</code></pre>
+<p>Group add command:</p>
+<pre><code class="language-no-highlight">&gt; group create GIRLS (Ann, Diana)
+&gt; group create TEAM (+Bob, -Frank, Chuck)
+&gt; group add TEAM (+GIRLS, -Diana)
+&gt; group show TEAM
+Ann
+Bob
+Chuck
+</code></pre>
+<p>Group remove command:</p>
+<pre><code class="language-no-highlight">&gt; group create GIRLS (Ann, Diana)
+&gt; group create BOYS (+Bob, Chuck)
+&gt; group create SQUAD (BOYS, GIRLS)
+&gt; group show SQUAD
+Ann
+Bob
+Chuck
+Diana
+&gt; group remove SQUAD (-BOYS, -Ann)
+&gt; group show SQUAD
+Diana</code></pre>
+<p>Group purchases:</p>
+<pre><code class="language-no-highlight">&gt; group create GIRLS (Ann, Diana)
+&gt; group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+&gt; 2020.10.20 purchase Diana flowers 15.65 (TEAM, Elon, -GIRLS)
+&gt; 2020.10.21 purchase Elon ChuckBirthdayGift 20.99 (TEAM, -Chuck)
+&gt; balance close
+Ann owes Elon 7.00
+Bob owes Diana 5.22
+Bob owes Elon 7.00
+Chuck owes Diana 5.22
+Diana owes Elon 1.78</code></pre>
+</div>

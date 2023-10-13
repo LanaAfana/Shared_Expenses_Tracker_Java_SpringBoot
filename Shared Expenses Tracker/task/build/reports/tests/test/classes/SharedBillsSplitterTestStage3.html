@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class SharedBillsSplitterTestStage3</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class SharedBillsSplitterTestStage3</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; SharedBillsSplitterTestStage3</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.407s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">start</td>
+<td class="success">0.407s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>?[1;31m
+Start test 1?[0m
+&gt; someRandomText
+Unknown command. Print help to show commands list
+&gt; exit
+?[1;31m
+Start test 2?[0m
+&gt; repay Ann
+Illegal command arguments
+&gt; exit
+?[1;31m
+Start test 3?[0m
+&gt; help
+balance
+borrow
+exit
+group
+help
+purchase
+repay
+&gt; exit
+?[1;31m
+Start test 4?[0m
+&gt; exit
+?[1;31m
+Start test 5?[0m
+&gt; 2020.09.30 borrow Ann Bob 20.10
+&gt; 2020.10.01 repay Ann Bob 10.22
+&gt; 2020.10.10 borrow Bob Ann 7.35
+&gt; 2020.10.15 repay Ann Bob 8.99
+&gt; repay Bob Ann 6.46
+&gt; 2020.09.25 balance
+No repayments
+&gt; 2020.10.30 balance open
+Ann owes Bob 20.10
+&gt; 2020.10.20 balance close
+Bob owes Ann 6.46
+&gt; balance close
+No repayments
+&gt; exit
+?[1;31m
+Start test 6?[0m
+&gt; borrow Ann Bob 25
+&gt; repay Ann Bob 15
+&gt; repay Bob Chuck 7
+&gt; borrow Ann Bob 4
+&gt; repay Bob Diana 5
+&gt; borrow Elon Diana 12
+&gt; repay Chuck Diana 14
+&gt; repay Chuck Diana 12
+&gt; balance close
+Ann owes Bob 14.00
+Chuck owes Bob 7.00
+Diana owes Bob 5.00
+Diana owes Chuck 26.00
+Elon owes Diana 12.00
+&gt; exit
+?[1;31m
+Start test 7?[0m
+&gt; borrow Diana Finny 159.38
+&gt; repay Carlos Diana 17.61
+&gt; repay Annabelle Diana 94.14
+&gt; repay Elon Diana 59.91
+&gt; repay Annabelle Diana 182.47
+&gt; repay Elon Carlos 17.92
+&gt; repay Annabelle Diana 32.24
+&gt; borrow Elon Carlos 110.86
+&gt; repay Billibob Finny 37.73
+&gt; repay Diana Annabelle 30.84
+&gt; repay Finny Elon 124.11
+&gt; repay Carlos Diana 69.4
+&gt; borrow Billibob Annabelle 192.37
+&gt; repay Annabelle Diana 18.17
+&gt; repay Annabelle Diana 103.65
+&gt; repay Finny Billibob 141.6
+&gt; borrow Billibob Diana 119.62
+&gt; repay Carlos Billibob 120.59
+&gt; borrow Billibob Carlos 85.46
+&gt; borrow Carlos Elon 94.7
+&gt; borrow Elon Annabelle 131.58
+&gt; repay Annabelle Diana 58.89
+&gt; borrow Carlos Elon 103.60
+&gt; borrow Billibob Finny 146.78
+&gt; repay Finny Diana 145.63
+&gt; borrow Diana Finny 178.71
+&gt; borrow Diana Annabelle 180.30
+&gt; borrow Billibob Carlos 36.71
+&gt; repay Annabelle Carlos 78.72
+&gt; repay Diana Annabelle 24.5
+&gt; borrow Billibob Elon 81.30
+&gt; repay Annabelle Billibob 66.4
+&gt; borrow Elon Diana 51.98
+&gt; repay Annabelle Billibob 78.88
+&gt; borrow Elon Annabelle 164.22
+&gt; borrow Elon Carlos 23.75
+&gt; repay Carlos Annabelle 27.69
+&gt; repay Diana Annabelle 23.41
+&gt; borrow Diana Finny 21.50
+&gt; repay Diana Annabelle 155.20
+&gt; repay Diana Carlos 61.41
+&gt; repay Elon Diana 39.22
+&gt; borrow Billibob Elon 91.29
+&gt; borrow Carlos Elon 1.59
+&gt; repay Finny Annabelle 170.59
+&gt; repay Elon Finny 149.19
+&gt; borrow Carlos Billibob 79.12
+&gt; repay Finny Diana 26.15
+&gt; repay Finny Elon 161.62
+&gt; borrow Diana Elon 149.86
+&gt; borrow Elon Carlos 188.59
+&gt; borrow Finny Elon 177.29
+&gt; borrow Diana Finny 86.46
+&gt; borrow Elon Annabelle 28.30
+&gt; borrow Finny Billibob 152.27
+&gt; borrow Carlos Elon 41.4
+&gt; repay Diana Elon 58.32
+&gt; repay Billibob Elon 20.8
+&gt; borrow Billibob Carlos 3.69
+&gt; repay Annabelle Billibob 118.50
+&gt; repay Billibob Finny 124.65
+&gt; repay Finny Carlos 195.56
+&gt; borrow Carlos Diana 107.3
+&gt; repay Carlos Billibob 57.12
+&gt; repay Elon Diana 82.28
+&gt; repay Carlos Diana 190.89
+&gt; borrow Diana Elon 119.86
+&gt; repay Annabelle Diana 186.16
+&gt; borrow Elon Finny 126.57
+&gt; repay Carlos Finny 195.56
+&gt; repay Carlos Diana 173.18
+&gt; repay Annabelle Billibob 94.28
+&gt; repay Elon Diana 128.35
+&gt; borrow Annabelle Diana 94.62
+&gt; repay Carlos Finny 124.91
+&gt; borrow Annabelle Elon 149.95
+&gt; borrow Annabelle Diana 28.17
+&gt; repay Diana Billibob 99.90
+&gt; borrow Diana Carlos 192.94
+&gt; borrow Annabelle Diana 26.93
+&gt; repay Billibob Carlos 99.21
+&gt; repay Finny Annabelle 54.34
+&gt; borrow Finny Annabelle 129.3
+&gt; balance close
+Carlos owes Annabelle 51.03
+Diana owes Annabelle 472.35
+Billibob owes Annabelle 550.43
+Billibob owes Diana 219.52
+Billibob owes Elon 151.79
+Finny owes Billibob 26.27
+Billibob owes Carlos 125.24
+Diana owes Carlos 475.31
+Diana owes Finny 617.83
+Elon owes Annabelle 174.15
+Elon owes Carlos 63.99
+Diana owes Elon 469.18
+Annabelle owes Finny 95.63
+Finny owes Carlos 124.91
+Elon owes Finny 85.82
+?[1;31m
+Start test 8?[0m
+&gt; group create lowerCaseText
+Illegal command arguments
+&gt; group show NOTFOUNDGROUP
+Unknown group
+&gt; group create BOYS (Elon, Bob, Chuck)
+[Elon, Bob, Chuck]
+&gt; group show BOYS
+Bob
+Chuck
+Elon
+?[1;31m
+Start test 9?[0m
+&gt; group create COFFEETEAM (Ann, Bob)
+[Ann, Bob]
+&gt; purchase Bob coffee 10 (COFFEETEAM)
+[Ann, Bob]
+&gt; balance close
+Ann owes Bob 5.00
+&gt; repay Ann Bob 5.00
+&gt; balance close
+No repayments
+?[1;31m
+Start test 10?[0m
+&gt; group create FRIENDS (Ann, Bob, Chuck)
+[Ann, Bob, Chuck]
+&gt; purchase Elon chocolate 12.50 (FRIENDS)
+[Ann, Bob, Chuck]
+&gt; balance close
+Ann owes Elon 4.17
+Bob owes Elon 4.17
+Chuck owes Elon 4.16
+?[1;31m
+Start test 11?[0m
+&gt; group create BOYS (Elon, Bob, Chuck)
+[Elon, Bob, Chuck]
+&gt; group create GIRLS (Ann, Diana)
+[Ann, Diana]
+&gt; 2020.10.20 purchase Diana flowers 15.65 (BOYS)
+[Bob, Chuck, Elon]
+&gt; 2020.10.21 purchase Chuck chocolate 6.30 (BOYS)
+[Bob, Chuck, Elon]
+&gt; 2020.10.22 purchase Bob icecream 3.99 (GIRLS)
+[Ann, Diana]
+&gt; balance close
+Ann owes Bob 2.00
+Bob owes Chuck 2.10
+Bob owes Diana 3.23
+Chuck owes Diana 5.22
+Elon owes Chuck 2.10
+Elon owes Diana 5.21
+?[1;31m
+Start test 12?[0m
+&gt; group create GIRLS (Ann, Diana)
+[Ann, Diana]
+&gt; group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+[Bob, Ann, Diana, -Frank, Chuck]
+&gt; group show TEAM
+Ann
+Bob
+Chuck
+Diana
+?[1;31m
+Start test 13?[0m
+&gt; group create GIRLS (Ann, Diana)
+[Ann, Diana]
+&gt; group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+[Bob, Ann, Diana, -Frank, Chuck]
+&gt; 2020.10.20 purchase Diana flowers 15.65 (TEAM, Elon, -GIRLS)
+[Ann, Bob, Chuck, Diana, Elon, -Ann, -Diana]
+&gt; 2020.10.21 purchase Elon ChuckBirthdayGift 20.99 (TEAM, -Chuck)
+[Ann, Bob, Chuck, Diana, -Chuck]
+&gt; balance close
+Ann owes Elon 7.00
+Bob owes Diana 5.22
+Bob owes Elon 7.00
+Chuck owes Diana 5.22
+Diana owes Elon 1.78
+?[1;31m
+Start test 14?[0m
+&gt; group create SOMEGROUP (Bob, -Bob)
+[Bob, -Bob]
+&gt; group show SOMEGROUP
+Group is empty
+&gt; group add SOMEGROUP (Bob)
+[Bob]
+&gt; group remove SOMEGROUP (Bob)
+[Bob]
+&gt; group show SOMEGROUP
+Group is empty
+&gt; group create ANOTHERGROUP (SOMEGROUP)
+[]
+&gt; group show ANOTHERGROUP
+Group is empty
+&gt; 2020.10.21 purchase Elon chocolate 6.30 (SOMEGROUP)
+[]
+Group is empty
+?[1;31m
+Start test 15?[0m
+&gt; group create SOMEGROUP (Bob)
+[Bob]
+&gt; group create GIRLS (Ann, Diana)
+[Ann, Diana]
+&gt; group create BOYS (Bob, Chuck, Elon)
+[Bob, Chuck, Elon]
+&gt; group add SOMEGROUP (GIRLS, Frank)
+[Ann, Diana, Frank, Bob]
+&gt; group remove SOMEGROUP (-BOYS, Bob, +Frank)
+[-Bob, -Chuck, -Elon, Bob, Frank]
+&gt; group show SOMEGROUP
+Ann
+Bob
+Diana
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.3</a> at 13 окт. 2023 г., 11:30:53</p>
+</div>
+</div>
+</body>
+</html>

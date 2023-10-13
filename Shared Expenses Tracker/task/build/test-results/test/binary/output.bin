@@ -1,0 +1,272 @@
+[1;31m
+Start test 1[0m
+> someRandomText
+2Unknown command. Print help to show commands list
+> exit
+[1;31m
+Start test 2[0m
+> repay Ann
+Illegal command arguments
+> exit
+[1;31m
+Start test 3[0m
+> help
+balance
+borrow
+exit
+group
+help
+	purchase
+repay
+> exit
+[1;31m
+Start test 4[0m
+> exit
+[1;31m
+Start test 5[0m
+"> 2020.09.30 borrow Ann Bob 20.10
+!> 2020.10.01 repay Ann Bob 10.22
+!> 2020.10.10 borrow Bob Ann 7.35
+ > 2020.10.15 repay Ann Bob 8.99
+> repay Bob Ann 6.46
+> 2020.09.25 balance
+No repayments
+> 2020.10.30 balance open
+Ann owes Bob 20.10
+> 2020.10.20 balance close
+Bob owes Ann 6.46
+> balance close
+No repayments
+> exit
+[1;31m
+Start test 6[0m
+> borrow Ann Bob 25
+> repay Ann Bob 15
+> repay Bob Chuck 7
+> borrow Ann Bob 4
+> repay Bob Diana 5
+> borrow Elon Diana 12
+> repay Chuck Diana 14
+> repay Chuck Diana 12
+> balance close
+Ann owes Bob 14.00
+Chuck owes Bob 7.00
+Diana owes Bob 5.00
+Diana owes Chuck 26.00
+Elon owes Diana 12.00
+> exit
+[1;31m
+Start test 7[0m
+> borrow Diana Finny 159.38
+> repay Carlos Diana 17.61
+> repay Annabelle Diana 94.14
+> repay Elon Diana 59.91
+> repay Annabelle Diana 182.47
+> repay Elon Carlos 17.92
+> repay Annabelle Diana 32.24
+> borrow Elon Carlos 110.86
+> repay Billibob Finny 37.73
+> repay Diana Annabelle 30.84
+> repay Finny Elon 124.11
+> repay Carlos Diana 69.4
+#> borrow Billibob Annabelle 192.37
+> repay Annabelle Diana 18.17
+> repay Annabelle Diana 103.65
+> repay Finny Billibob 141.6
+> borrow Billibob Diana 119.62
+> repay Carlos Billibob 120.59
+> borrow Billibob Carlos 85.46
+> borrow Carlos Elon 94.7
+> borrow Elon Annabelle 131.58
+> repay Annabelle Diana 58.89
+> borrow Carlos Elon 103.60
+> borrow Billibob Finny 146.78
+> repay Finny Diana 145.63
+> borrow Diana Finny 178.71
+ > borrow Diana Annabelle 180.30
+> borrow Billibob Carlos 36.71
+> repay Annabelle Carlos 78.72
+> repay Diana Annabelle 24.5
+> borrow Billibob Elon 81.30
+ > repay Annabelle Billibob 66.4
+> borrow Elon Diana 51.98
+!> repay Annabelle Billibob 78.88
+> borrow Elon Annabelle 164.22
+> borrow Elon Carlos 23.75
+> repay Carlos Annabelle 27.69
+> repay Diana Annabelle 23.41
+> borrow Diana Finny 21.50
+> repay Diana Annabelle 155.20
+> repay Diana Carlos 61.41
+> repay Elon Diana 39.22
+> borrow Billibob Elon 91.29
+> borrow Carlos Elon 1.59
+> repay Finny Annabelle 170.59
+> repay Elon Finny 149.19
+> borrow Carlos Billibob 79.12
+> repay Finny Diana 26.15
+> repay Finny Elon 161.62
+> borrow Diana Elon 149.86
+> borrow Elon Carlos 188.59
+> borrow Finny Elon 177.29
+> borrow Diana Finny 86.46
+> borrow Elon Annabelle 28.30
+> borrow Finny Billibob 152.27
+> borrow Carlos Elon 41.4
+> repay Diana Elon 58.32
+> repay Billibob Elon 20.8
+> borrow Billibob Carlos 3.69
+"> repay Annabelle Billibob 118.50
+> repay Billibob Finny 124.65
+> repay Finny Carlos 195.56
+> borrow Carlos Diana 107.3
+> repay Carlos Billibob 57.12
+> repay Elon Diana 82.28
+> repay Carlos Diana 190.89
+> borrow Diana Elon 119.86
+> repay Annabelle Diana 186.16
+> borrow Elon Finny 126.57
+> repay Carlos Finny 195.56
+> repay Carlos Diana 173.18
+!> repay Annabelle Billibob 94.28
+> repay Elon Diana 128.35
+> borrow Annabelle Diana 94.62
+> repay Carlos Finny 124.91
+> borrow Annabelle Elon 149.95
+> borrow Annabelle Diana 28.17
+> repay Diana Billibob 99.90
+> borrow Diana Carlos 192.94
+> borrow Annabelle Diana 26.93
+> repay Billibob Carlos 99.21
+> repay Finny Annabelle 54.34
+> borrow Finny Annabelle 129.3
+> balance close
+Carlos owes Annabelle 51.03
+Diana owes Annabelle 472.35
+Billibob owes Annabelle 550.43
+Billibob owes Diana 219.52
+Billibob owes Elon 151.79
+Finny owes Billibob 26.27
+Billibob owes Carlos 125.24
+Diana owes Carlos 475.31
+Diana owes Finny 617.83
+Elon owes Annabelle 174.15
+Elon owes Carlos 63.99
+Diana owes Elon 469.18
+Annabelle owes Finny 95.63
+Finny owes Carlos 124.91
+Elon owes Finny 85.82
+[1;31m
+Start test 8[0m
+> group create lowerCaseText
+Illegal command arguments
+> group show NOTFOUNDGROUP
+Unknown group
+'> group create BOYS (Elon, Bob, Chuck)
+[Elon, Bob, Chuck]
+> group show BOYS
+Bob
+Chuck
+Elon
+[1;31m
+Start test 9[0m
+%> group create COFFEETEAM (Ann, Bob)
+[Ann, Bob]
+&> purchase Bob coffee 10 (COFFEETEAM)
+[Ann, Bob]
+> balance close
+Ann owes Bob 5.00
+> repay Ann Bob 5.00
+> balance close
+No repayments
+[1;31m
+Start test 10[0m
+)> group create FRIENDS (Ann, Bob, Chuck)
+[Ann, Bob, Chuck]
+*> purchase Elon chocolate 12.50 (FRIENDS)
+[Ann, Bob, Chuck]
+> balance close
+Ann owes Elon 4.17
+Bob owes Elon 4.17
+Chuck owes Elon 4.16
+[1;31m
+Start test 11[0m
+'> group create BOYS (Elon, Bob, Chuck)
+[Elon, Bob, Chuck]
+"> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+1> 2020.10.20 purchase Diana flowers 15.65 (BOYS)
+[Bob, Chuck, Elon]
+2> 2020.10.21 purchase Chuck chocolate 6.30 (BOYS)
+[Bob, Chuck, Elon]
+0> 2020.10.22 purchase Bob icecream 3.99 (GIRLS)
+[Ann, Diana]
+> balance close
+Ann owes Bob 2.00
+Bob owes Chuck 2.10
+Bob owes Diana 3.23
+Chuck owes Diana 5.22
+Elon owes Chuck 2.10
+Elon owes Diana 5.21
+[1;31m
+Start test 12[0m
+"> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+1> group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+![Bob, Ann, Diana, -Frank, Chuck]
+> group show TEAM
+Ann
+Bob
+Chuck
+Diana
+[1;31m
+Start test 13[0m
+"> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+1> group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+![Bob, Ann, Diana, -Frank, Chuck]
+?> 2020.10.20 purchase Diana flowers 15.65 (TEAM, Elon, -GIRLS)
+-[Ann, Bob, Chuck, Diana, Elon, -Ann, -Diana]
+B> 2020.10.21 purchase Elon ChuckBirthdayGift 20.99 (TEAM, -Chuck)
+![Ann, Bob, Chuck, Diana, -Chuck]
+> balance close
+Ann owes Elon 7.00
+Bob owes Diana 5.22
+Bob owes Elon 7.00
+Chuck owes Diana 5.22
+Diana owes Elon 1.78
+[1;31m
+Start test 14[0m
+%> group create SOMEGROUP (Bob, -Bob)
+[Bob, -Bob]
+> group show SOMEGROUP
+Group is empty
+> group add SOMEGROUP (Bob)
+[Bob]
+> group remove SOMEGROUP (Bob)
+[Bob]
+> group show SOMEGROUP
+Group is empty
+(> group create ANOTHERGROUP (SOMEGROUP)
+[]
+> group show ANOTHERGROUP
+Group is empty
+6> 2020.10.21 purchase Elon chocolate 6.30 (SOMEGROUP)
+[]
+Group is empty
+[1;31m
+Start test 15[0m
+> group create SOMEGROUP (Bob)
+[Bob]
+"> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+'> group create BOYS (Bob, Chuck, Elon)
+[Bob, Chuck, Elon]
+%> group add SOMEGROUP (GIRLS, Frank)
+[Ann, Diana, Frank, Bob]
+.> group remove SOMEGROUP (-BOYS, Bob, +Frank)
+"[-Bob, -Chuck, -Elon, Bob, Frank]
+> group show SOMEGROUP
+Ann
+Bob
+Diana
