@@ -1240,6 +1240,27 @@ files:
         }
     }
   learner_created: false
-feedback_link: https://hyperskill.org/projects/142/stages/768/implement#comment
-status: Unchecked
+- name: build.gradle
+  visible: true
+  learner_created: true
+- name: src/resources/application.properties
+  visible: true
+  learner_created: true
+- name: src/splitter/business/SharedExpensesService.java
+  visible: true
+  learner_created: true
+- name: src/splitter/persistence/GroupRepository.java
+  visible: true
+  learner_created: true
+- name: src/splitter/persistence/TransactionRepository.java
+  visible: true
+  learner_created: true
+- name: src/splitter/presentation/SharedExpensesOperator.java
+  visible: true
+  learner_created: true
+feedback_link: https://hyperskill.org/learn/step/11721#comment
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 16 Oct 2023 12:22:35 UTC"
 record: -1

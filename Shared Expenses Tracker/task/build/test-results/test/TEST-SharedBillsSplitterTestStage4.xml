@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SharedBillsSplitterTestStage4" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-16T12:22:27" hostname="MacBook-Pro-3.local" time="7.261">
+  <properties/>
+  <testcase name="start" classname="SharedBillsSplitterTestStage4" time="7.261"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+> someRandomText
+Unknown command. Print help to show commands list
+> exit
+?[1;31m
+Start test 2?[0m
+> repay Ann
+Illegal command arguments
+> exit
+?[1;31m
+Start test 3?[0m
+> help
+balance
+borrow
+cashBack
+exit
+group
+help
+purchase
+repay
+secretSanta
+writeOff
+> exit
+?[1;31m
+Start test 4?[0m
+> exit
+?[1;31m
+Start test 5?[0m
+> borrow Ann Bob 1.00
+> 3030.03.30 purchase Bob coffee 3.50 (Bob, Ann)
+[Bob, Ann]
+> writeOff
+> balance close
+No repayments
+> 3030.03.30 writeOff
+> 3030.03.30 balance close
+No repayments
+> exit
+?[1;31m
+Start test 6?[0m
+> writeOff
+> group create TEAM (Diana, Elon, Bob, Ann)
+[Diana, Elon, Bob, Ann]
+> purchase Elon icecream 4.80 (TEAM)
+[Ann, Bob, Diana, Elon]
+> borrow Ann Bob 1.05
+> repay Ann Bob 5.01
+> exit
+> group show TEAM
+Ann
+Bob
+Diana
+Elon
+> balance close
+Ann owes Elon 1.20
+Bob owes Ann 3.96
+Bob owes Elon 1.20
+Diana owes Elon 1.20
+> exit
+?[1;31m
+Start test 7?[0m
+> writeOff
+> 2020.09.30 borrow Ann Bob 20.10
+> 2020.10.01 repay Ann Bob 10.22
+> 2020.10.10 borrow Bob Ann 7.35
+> 2020.10.15 repay Ann Bob 8.99
+> repay Bob Ann 6.46
+> 2020.09.25 balance
+No repayments
+> 2020.10.30 balance open
+Ann owes Bob 20.10
+> 2020.10.20 balance close
+Bob owes Ann 6.46
+> balance close
+No repayments
+> exit
+?[1;31m
+Start test 8?[0m
+> writeOff
+> borrow Ann Bob 25
+> repay Ann Bob 15
+> repay Bob Chuck 7
+> borrow Ann Bob 4
+> repay Bob Diana 5
+> borrow Elon Diana 12
+> repay Chuck Diana 14
+> repay Chuck Diana 12
+> balance close
+Ann owes Bob 14.00
+Chuck owes Bob 7.00
+Diana owes Bob 5.00
+Diana owes Chuck 26.00
+Elon owes Diana 12.00
+> exit
+?[1;31m
+Start test 9?[0m
+> writeOff
+> repay Diana Annabelle 131.56
+> repay Finny Carlos 123.57
+> repay Billibob Annabelle 137.86
+> repay Finny Elon 184.44
+> repay Diana Carlos 85.41
+> repay Billibob Diana 37.86
+> repay Billibob Finny 177.17
+> borrow Carlos Billibob 190.67
+> repay Diana Elon 78.1
+> borrow Diana Finny 139.4
+> repay Carlos Diana 34.34
+> borrow Finny Carlos 111.72
+> repay Diana Carlos 48.17
+> borrow Billibob Carlos 48.69
+> borrow Elon Annabelle 49.14
+> repay Elon Annabelle 5.48
+> repay Carlos Annabelle 93.58
+> borrow Elon Billibob 122.63
+> borrow Elon Annabelle 179.12
+> repay Finny Carlos 74.97
+> borrow Diana Elon 109.35
+> borrow Elon Finny 196.35
+> borrow Elon Billibob 4.77
+> borrow Annabelle Diana 173.28
+> borrow Elon Finny 145.8
+> repay Finny Billibob 48.97
+> borrow Diana Elon 167.75
+> borrow Annabelle Billibob 107.1
+> repay Diana Billibob 82.41
+> repay Elon Billibob 131.94
+> borrow Annabelle Diana 38.62
+> repay Elon Diana 156.37
+> repay Annabelle Elon 183.98
+> repay Carlos Diana 126.0
+> borrow Diana Billibob 55.52
+> borrow Carlos Diana 79.44
+> borrow Billibob Annabelle 148.5
+> repay Billibob Elon 169.5
+> borrow Annabelle Elon 169.47
+> repay Diana Carlos 170.29
+> repay Diana Billibob 93.18
+> borrow Billibob Diana 49.73
+> borrow Billibob Annabelle 138.91
+> borrow Billibob Elon 80.2
+> borrow Billibob Finny 5.25
+> repay Annabelle Elon 179.83
+> borrow Annabelle Finny 57.38
+> repay Billibob Elon 75.91
+> borrow Annabelle Elon 157.67
+> repay Billibob Elon 101.11
+> repay Finny Annabelle 60.58
+> borrow Carlos Billibob 148.32
+> repay Carlos Annabelle 148.43
+> borrow Annabelle Carlos 30.80
+> borrow Elon Diana 175.7
+> repay Finny Elon 25.61
+> repay Carlos Diana 104.22
+> repay Billibob Annabelle 105.83
+> repay Elon Diana 113.94
+> repay Finny Diana 97.48
+> borrow Carlos Elon 2.81
+> repay Elon Billibob 178.39
+> borrow Carlos Annabelle 13.46
+> borrow Carlos Finny 174.20
+> borrow Finny Carlos 100.28
+> borrow Carlos Elon 78.77
+> borrow Billibob Annabelle 79.92
+> borrow Annabelle Billibob 41.30
+> repay Billibob Carlos 79.39
+> repay Billibob Elon 121.25
+> repay Billibob Annabelle 19.12
+> repay Elon Finny 31.16
+> repay Elon Carlos 62.31
+> repay Elon Billibob 43.57
+> repay Annabelle Carlos 194.94
+> borrow Diana Elon 21.43
+> borrow Billibob Elon 125.27
+> borrow Finny Carlos 1.56
+> repay Annabelle Carlos 163.68
+> borrow Annabelle Elon 136.81
+> borrow Annabelle Diana 167.43
+> borrow Annabelle Diana 190.98
+> repay Finny Elon 105.81
+> borrow Elon Finny 40.12
+> repay Diana Finny 109.18
+> borrow Annabelle Carlos 31.40
+> borrow Elon Annabelle 32.91
+> repay Diana Billibob 37.19
+> borrow Billibob Finny 86.58
+> repay Diana Carlos 100.55
+> balance close
+Annabelle owes Billibob 43.88
+Annabelle owes Diana 701.87
+Annabelle owes Finny 117.96
+Billibob owes Diana 169.13
+Carlos owes Annabelle 67.87
+Carlos owes Billibob 369.69
+Carlos owes Diana 219.30
+Carlos owes Elon 143.89
+Carlos owes Finny 159.18
+Diana owes Elon 315.04
+Diana owes Finny 127.70
+Elon owes Annabelle 155.55
+Elon owes Billibob 35.80
+Elon owes Finny 666.97
+Finny owes Billibob 36.37
+> exit
+?[1;31m
+Start test 10?[0m
+> group create lowerCaseText
+Illegal command arguments
+> group show NOTFOUNDGROUP
+Unknown group
+> group create BOYS (Elon, Bob, Chuck)
+[Elon, Bob, Chuck]
+> group show BOYS
+Bob
+Chuck
+Elon
+> exit
+?[1;31m
+Start test 11?[0m
+> writeOff
+> group create COFFEETEAM (Ann, Bob)
+[Ann, Bob]
+> purchase Bob coffee 10 (COFFEETEAM)
+[Ann, Bob]
+> balance close
+Ann owes Bob 5.00
+> repay Ann Bob 5.00
+> balance close
+No repayments
+> exit
+?[1;31m
+Start test 12?[0m
+> writeOff
+> group create FRIENDS (Ann, Bob, Chuck)
+[Ann, Bob, Chuck]
+> purchase Elon chocolate 12.50 (FRIENDS)
+[Ann, Bob, Chuck]
+> balance close
+Ann owes Elon 4.17
+Bob owes Elon 4.17
+Chuck owes Elon 4.16
+> exit
+?[1;31m
+Start test 13?[0m
+> writeOff
+> group create BOYS (Elon, Bob, Chuck)
+[Elon, Bob, Chuck]
+> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+> 2020.10.20 purchase Diana flowers 15.65 (BOYS)
+[Bob, Chuck, Elon]
+> 2020.10.21 purchase Chuck chocolate 6.30 (BOYS)
+[Bob, Chuck, Elon]
+> 2020.10.22 purchase Bob icecream 3.99 (GIRLS)
+[Ann, Diana]
+> balance close
+Ann owes Bob 2.00
+Bob owes Chuck 2.10
+Bob owes Diana 3.23
+Chuck owes Diana 5.22
+Elon owes Chuck 2.10
+Elon owes Diana 5.21
+> exit
+?[1;31m
+Start test 14?[0m
+> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+> group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+[Bob, Ann, Diana, -Frank, Chuck]
+> group show TEAM
+Ann
+Bob
+Chuck
+Diana
+> exit
+?[1;31m
+Start test 15?[0m
+> writeOff
+> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+> group create TEAM (+Bob, GIRLS, -Frank, Chuck)
+[Bob, Ann, Diana, -Frank, Chuck]
+> 2020.10.20 purchase Diana flowers 15.65 (TEAM, Elon, -GIRLS)
+[Ann, Bob, Chuck, Diana, Elon, -Ann, -Diana]
+> 2020.10.21 purchase Elon ChuckBirthdayGift 20.99 (TEAM, -Chuck)
+[Ann, Bob, Chuck, Diana, -Chuck]
+> balance close
+Ann owes Elon 7.00
+Bob owes Diana 5.22
+Bob owes Elon 7.00
+Chuck owes Diana 5.22
+Diana owes Elon 1.78
+> exit
+?[1;31m
+Start test 16?[0m
+> writeOff
+> group create SOMEGROUP (Bob, -Bob)
+[Bob, -Bob]
+> group show SOMEGROUP
+Group is empty
+> group add SOMEGROUP (Bob)
+[Bob]
+> group remove SOMEGROUP (Bob)
+[Bob]
+> group show SOMEGROUP
+Group is empty
+> group create ANOTHERGROUP (SOMEGROUP)
+[]
+> group show ANOTHERGROUP
+Group is empty
+> 2020.10.21 purchase Elon chocolate 6.30 (SOMEGROUP)
+[]
+Group is empty
+2023-10-16 15:22:33.887 ERROR 23193 --- [           Main] o.s.boot.SpringApplication               : Application run failed
+
+org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
+	at org.hyperskill.hstest.dynamic.input.DynamicInputHandler.ejectChar(DynamicInputHandler.java:34) ~[hs-test-release-SNAPSHOT.jar:na]
+	at org.hyperskill.hstest.dynamic.input.InputMock.read(InputMock.java:81) ~[hs-test-release-SNAPSHOT.jar:na]
+	at org.hyperskill.hstest.dynamic.input.InputMock.read(InputMock.java:59) ~[hs-test-release-SNAPSHOT.jar:na]
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270) ~[na:na]
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313) ~[na:na]
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188) ~[na:na]
+	at java.base/java.io.Reader.read(Reader.java:197) ~[na:na]
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:157) ~[na:na]
+	at java.base/java.util.Scanner.readInput(Scanner.java:882) ~[na:na]
+	at java.base/java.util.Scanner.findWithinHorizon(Scanner.java:1796) ~[na:na]
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1649) ~[na:na]
+	at splitter.Main.run(Main.java:28) ~[main/:na]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:791) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:775) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:345) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-2.5.6.jar:2.5.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332) ~[spring-boot-2.5.6.jar:2.5.6]
+	at splitter.Main.main(Main.java:21) ~[main/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor127.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160) ~[hs-test-release-SNAPSHOT.jar:na]
+	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.lambda$launch$1(MainMethodExecutor.java:188) ~[hs-test-release-SNAPSHOT.jar:na]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+?[1;31m
+Start test 17?[0m
+> group create SOMEGROUP (Bob)
+[Bob]
+> group create GIRLS (Ann, Diana)
+[Ann, Diana]
+> group create BOYS (Bob, Chuck, Elon)
+[Bob, Chuck, Elon]
+> group add SOMEGROUP (GIRLS, Frank)
+[Ann, Diana, Frank, Bob]
+> group remove SOMEGROUP (-BOYS, Bob, +Frank)
+[-Bob, -Chuck, -Elon, Bob, Frank]
+> group show SOMEGROUP
+Ann
+Bob
+Diana
+> exit
+?[1;31m
+Start test 18?[0m
+> group create SOMESANTAGROUP (Gordon,Bob,Ann,Chuck,Elon,Diana,Foxy)
+[Gordon,Bob,Ann,Chuck,Elon,Diana,Foxy]
+> secretSanta SOMESANTAGROUP
+Ann gift to Gordon
+Diana gift to Ann
+Gordon gift to Chuck
+Bob gift to Diana
+Elon gift to Foxy
+Chuck gift to Bob
+Foxy gift to Elon
+> exit
+?[1;31m
+Start test 19?[0m
+> writeOff
+> group create TEAM (Bob, Ann, Frank, Chuck, Elon, Diana)
+[Bob, Ann, Frank, Chuck, Elon, Diana]
+> 2020.12.25 cashBack YourCompany secretSantaGift 24.00 (TEAM)
+[Ann, Bob, Chuck, Diana, Elon, Frank]
+> 2020.12.25 balance close
+YourCompany owes Ann 4.00
+YourCompany owes Bob 4.00
+YourCompany owes Chuck 4.00
+YourCompany owes Diana 4.00
+YourCompany owes Elon 4.00
+YourCompany owes Frank 4.00
+> exit
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
