@@ -96,112 +96,110 @@
 [1;31m
 Start test 9[0m
 > writeOff
-> repay Diana Annabelle 131.56
-> repay Finny Carlos 123.57
-"> repay Billibob Annabelle 137.86
-> repay Finny Elon 184.44
-> repay Diana Carlos 85.41
-> repay Billibob Diana 37.86
-> repay Billibob Finny 177.17
- > borrow Carlos Billibob 190.67
-> repay Diana Elon 78.1
-> borrow Diana Finny 139.4
-> repay Carlos Diana 34.34
-> borrow Finny Carlos 111.72
-> repay Diana Carlos 48.17
-> borrow Billibob Carlos 48.69
-> borrow Elon Annabelle 49.14
-> repay Elon Annabelle 5.48
-> repay Carlos Annabelle 93.58
-> borrow Elon Billibob 122.63
-> borrow Elon Annabelle 179.12
-> repay Finny Carlos 74.97
-> borrow Diana Elon 109.35
-> borrow Elon Finny 196.35
-> borrow Elon Billibob 4.77
- > borrow Annabelle Diana 173.28
-> borrow Elon Finny 145.8
-> repay Finny Billibob 48.97
-> borrow Diana Elon 167.75
-"> borrow Annabelle Billibob 107.1
-> repay Diana Billibob 82.41
-> repay Elon Billibob 131.94
-> borrow Annabelle Diana 38.62
-> repay Elon Diana 156.37
-> repay Annabelle Elon 183.98
-> repay Carlos Diana 126.0
-> borrow Diana Billibob 55.52
-> borrow Carlos Diana 79.44
-"> borrow Billibob Annabelle 148.5
-> repay Billibob Elon 169.5
-> borrow Annabelle Elon 169.47
-> repay Diana Carlos 170.29
-> repay Diana Billibob 93.18
-> borrow Billibob Diana 49.73
-#> borrow Billibob Annabelle 138.91
-> borrow Billibob Elon 80.2
-> borrow Billibob Finny 5.25
-> repay Annabelle Elon 179.83
-> borrow Annabelle Finny 57.38
-> repay Billibob Elon 75.91
-> borrow Annabelle Elon 157.67
-> repay Billibob Elon 101.11
-> repay Finny Annabelle 60.58
- > borrow Carlos Billibob 148.32
- > repay Carlos Annabelle 148.43
- > borrow Annabelle Carlos 30.80
-> borrow Elon Diana 175.7
-> repay Finny Elon 25.61
-> repay Carlos Diana 104.22
-"> repay Billibob Annabelle 105.83
-> repay Elon Diana 113.94
-> repay Finny Diana 97.48
-> borrow Carlos Elon 2.81
-> repay Elon Billibob 178.39
- > borrow Carlos Annabelle 13.46
-> borrow Carlos Finny 174.20
-> borrow Finny Carlos 100.28
-> borrow Carlos Elon 78.77
-"> borrow Billibob Annabelle 79.92
-"> borrow Annabelle Billibob 41.30
-> repay Billibob Carlos 79.39
-> repay Billibob Elon 121.25
-!> repay Billibob Annabelle 19.12
-> repay Elon Finny 31.16
-> repay Elon Carlos 62.31
-> repay Elon Billibob 43.57
- > repay Annabelle Carlos 194.94
-> borrow Diana Elon 21.43
-> borrow Billibob Elon 125.27
-> borrow Finny Carlos 1.56
- > repay Annabelle Carlos 163.68
-> borrow Annabelle Elon 136.81
- > borrow Annabelle Diana 167.43
- > borrow Annabelle Diana 190.98
-> repay Finny Elon 105.81
-> borrow Elon Finny 40.12
-> repay Diana Finny 109.18
- > borrow Annabelle Carlos 31.40
-> borrow Elon Annabelle 32.91
-> repay Diana Billibob 37.19
-> borrow Billibob Finny 86.58
-> repay Diana Carlos 100.55
+> borrow Carlos Elon 196.14
+> repay Elon Finny 131.67
+ > borrow Annabelle Carlos 52.63
+> repay Finny Diana 164.85
+> repay Diana Finny 88.6
+> repay Carlos Billibob 98.9
+> repay Diana Carlos 98.79
+> repay Carlos Finny 182.1
+> repay Annabelle Carlos 48.64
+ > repay Carlos Annabelle 110.73
+> repay Finny Carlos 70.92
+> borrow Diana Carlos 99.97
+#> borrow Billibob Annabelle 183.32
+> borrow Billibob Elon 122.9
+> borrow Finny Elon 47.93
+> repay Annabelle Finny 182.39
+> repay Billibob Diana 117.75
+> repay Billibob Elon 51.68
+#> borrow Billibob Annabelle 197.44
+> repay Elon Finny 181.44
+> borrow Elon Diana 3.90
+> repay Annabelle Finny 162.91
+#> borrow Billibob Annabelle 103.19
+> repay Carlos Billibob 180.76
+> repay Finny Annabelle 134.52
+> repay Diana Annabelle 100.27
+> borrow Diana Billibob 83.24
+ > borrow Billibob Carlos 127.37
+!> repay Billibob Annabelle 194.5
+!> repay Annabelle Billibob 18.96
+ > borrow Annabelle Diana 122.38
+> repay Billibob Carlos 117.25
+> borrow Finny Diana 30.35
+> borrow Finny Diana 51.44
+> repay Elon Annabelle 146.62
+> borrow Finny Annabelle 69.48
+> repay Finny Billibob 49.25
+> repay Carlos Finny 29.23
+> borrow Diana Carlos 104.54
+> repay Finny Diana 60.78
+"> repay Annabelle Billibob 186.84
+> repay Billibob Elon 73.94
+> repay Elon Carlos 101.95
+> borrow Finny Elon 187.15
+> borrow Carlos Elon 97.36
+> repay Finny Carlos 105.68
+> borrow Finny Annabelle 37.97
+> repay Carlos Finny 105.36
+> borrow Elon Annabelle 70.26
+> repay Carlos Elon 101.8
+> repay Billibob Elon 46.16
+> borrow Diana Elon 4.19
+> repay Carlos Diana 15.82
+!> repay Annabelle Billibob 45.55
+> repay Billibob Finny 99.45
+ > repay Annabelle Carlos 184.31
+"> repay Annabelle Billibob 164.47
+> borrow Diana Billibob 173.33
+> repay Diana Finny 148.53
+> borrow Elon Finny 148.48
+> repay Elon Annabelle 158.72
+ > repay Carlos Annabelle 182.26
+> borrow Carlos Diana 93.51
+> borrow Billibob Elon 145.84
+> repay Elon Finny 152.83
+> repay Billibob Carlos 143.31
+> repay Carlos Diana 44.29
+> borrow Finny Billibob 63.88
+!> repay Annabelle Billibob 90.58
+> borrow Finny Billibob 12.47
+> repay Finny Carlos 71.22
+> borrow Carlos Elon 190.49
+> repay Billibob Elon 118.4
+> borrow Carlos Diana 199.2
+> borrow Carlos Billibob 73.46
+> borrow Elon Annabelle 31.50
+> repay Billibob Diana 181.37
+> borrow Billibob Finny 120.52
+> repay Diana Elon 35.47
+#> borrow Billibob Annabelle 173.52
+> repay Carlos Billibob 153.33
+> borrow Finny Diana 88.95
+> borrow Billibob Diana 16.18
+> borrow Finny Elon 79.5
+> repay Carlos Finny 125.32
+> repay Diana Billibob 74.26
+> repay Elon Diana 95.13
+> repay Carlos Finny 199.93
 > balance close
-Annabelle owes Billibob 43.88
-Annabelle owes Diana 701.87
-Annabelle owes Finny 117.96
-Billibob owes Diana 169.13
-Carlos owes Annabelle 67.87
-Carlos owes Billibob 369.69
-Carlos owes Diana 219.30
-Carlos owes Elon 143.89
-Carlos owes Finny 159.18
-Diana owes Elon 315.04
-Diana owes Finny 127.70
-Elon owes Annabelle 155.55
-Elon owes Billibob 35.80
-Elon owes Finny 666.97
-Finny owes Billibob 36.37
+Annabelle owes Carlos 112.67
+Annabelle owes Diana 222.65
+Annabelle owes Elon 203.58
+Billibob owes Annabelle 969.37
+Billibob owes Carlos 226.34
+Carlos owes Diana 126.88
+Carlos owes Elon 484.14
+Diana owes Billibob 465.25
+Diana owes Elon 59.95
+Elon owes Billibob 21.44
+Finny owes Annabelle 318.23
+Finny owes Billibob 6.03
+Finny owes Carlos 394.12
+Finny owes Diana 182.24
+Finny owes Elon 632.04
 > exit
 [1;31m
 Start test 10[0m
@@ -312,7 +310,7 @@
 6> 2020.10.21 purchase Elon chocolate 6.30 (SOMEGROUP)
 []
 Group is empty
-|2023-10-16 15:22:33.887 ERROR 23193 --- [           Main] o.s.boot.SpringApplication               : Application run failed
+|2023-10-16 15:34:09.213 ERROR 23438 --- [           Main] o.s.boot.SpringApplication               : Application run failed
 
 Sorg.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
 †	at org.hyperskill.hstest.dynamic.input.DynamicInputHandler.ejectChar(DynamicInputHandler.java:34) ~[hs-test-release-SNAPSHOT.jar:na]
@@ -366,13 +364,13 @@
 E> group create SOMESANTAGROUP (Gordon,Bob,Ann,Chuck,Elon,Diana,Foxy)
 '[Gordon,Bob,Ann,Chuck,Elon,Diana,Foxy]
 > secretSanta SOMESANTAGROUP
-Ann gift to Gordon
-Diana gift to Ann
-Gordon gift to Chuck
-Bob gift to Diana
+Ann gift to Chuck
+Diana gift to Bob
+Gordon gift to Diana
+Bob gift to Gordon
 Elon gift to Foxy
-Chuck gift to Bob
-Foxy gift to Elon
+Chuck gift to Elon
+Foxy gift to Ann
 > exit
 [1;31m
 Start test 19[0m

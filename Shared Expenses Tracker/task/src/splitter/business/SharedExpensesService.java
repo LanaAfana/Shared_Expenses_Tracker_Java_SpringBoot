@@ -37,8 +37,8 @@ public class SharedExpensesService {
         groupRepository.deleteByName(name);
     }
 
-    public Transaction saveTransaction(Transaction transaction) {
-        return transactionRepository.save(transaction);
+    public void saveTransaction(Transaction transaction) {
+        transactionRepository.save(transaction);
     }
 
     public List<Transaction> getAllTransactions() {

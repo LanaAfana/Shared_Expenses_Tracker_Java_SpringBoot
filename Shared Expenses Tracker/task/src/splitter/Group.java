@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,10 +26,7 @@ public class Group {
 
     public static boolean isValidOperation(String cmdStr, String cmd) {
         String[] cmdList = cmdStr.split("\\s+");
-        if (cmdList[1].equals(cmd)
-            && Group.isAGroup(cmdList[2])) {
-            return true;
-        }
-        return false;
+        return cmdList[1].equals(cmd)
+                && Group.isAGroup(cmdList[2]);
     }
 }

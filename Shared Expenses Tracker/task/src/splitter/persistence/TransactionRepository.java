@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-    public List<Transaction> deleteByDateLessThanEqual(LocalDate date);
+    void deleteByDateLessThanEqual(LocalDate date);
 
 }

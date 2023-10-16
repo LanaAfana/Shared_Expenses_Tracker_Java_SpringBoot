@@ -16,7 +16,7 @@ public class SharedExpensesOperator {
 
     private final SharedExpensesService service;
 
-    private List<Transaction> result;
+    private final List<Transaction> result;
 
     @Autowired
     public SharedExpensesOperator(SharedExpensesService service) {
@@ -138,7 +138,6 @@ public class SharedExpensesOperator {
     public void addToGroup(String cmdStr) {
         if (Group.isValidOperation(cmdStr, "add")) {
             String name = getGroupName(cmdStr);
-            Group group = service.findGroupByName(name).get();
             service.saveGroup(new Group(name,
                     getAllParticipants(cmdStr.replace(")", ", " + name + ")"))));
         }
@@ -150,8 +149,8 @@ public class SharedExpensesOperator {
             Group group = service.findGroupByName(name).get();
             Group tempGroup = new Group("TEMP",
                     getAllParticipants(cmdStr));
-            Set<String> groupSet = new HashSet<String>(group.getParticipants());
-            groupSet.removeAll(new HashSet<String>(tempGroup.getParticipants()));
+            Set<String> groupSet = new HashSet<>(group.getParticipants());
+            groupSet.removeAll(new HashSet<>(tempGroup.getParticipants()));
             service.saveGroup(new Group(name,
                     groupSet.stream().toList()));
 
@@ -171,7 +170,7 @@ public class SharedExpensesOperator {
             if (qtyParticipants == 0) {
                 System.out.println("Group is empty");
             } else {
-                Double sum = Double.parseDouble(cmdList[shift + 3].trim())
+                double sum = Double.parseDouble(cmdList[shift + 3].trim())
                         / qtyParticipants;
                 for (int i = 0; i < qtyParticipants; i++) {
                     String participant = participantsList.get(i);
@@ -285,7 +284,7 @@ public class SharedExpensesOperator {
         List<Transaction> resList = new ArrayList<>();
 
         for (Transaction rec : result.stream().toList()) {
-            double sum = new BigDecimal(rec.getSum())
+            double sum = BigDecimal.valueOf(rec.getSum())
                     .setScale(2, RoundingMode.HALF_UP)
                     .doubleValue();
             if (sum > 0.00) {
@@ -335,7 +334,7 @@ public class SharedExpensesOperator {
             if (qtyParticipants == 0) {
                 System.out.println("Group is empty");
             } else {
-                Double sum = Double.parseDouble(cmdList[shift + 3].trim())
+                double sum = Double.parseDouble(cmdList[shift + 3].trim())
                         / qtyParticipants;
                 for (int i = 0; i < qtyParticipants; i++) {
                     String participant = participantsList.get(i);
