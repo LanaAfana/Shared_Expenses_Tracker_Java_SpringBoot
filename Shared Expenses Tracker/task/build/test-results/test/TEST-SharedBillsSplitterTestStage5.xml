@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SharedBillsSplitterTestStage4" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-16T12:34:02" hostname="MacBook-Pro-3.local" time="7.35">
+<testsuite name="SharedBillsSplitterTestStage5" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-17T19:30:34" hostname="MacBook-Pro-3.local" time="8.797">
   <properties/>
-  <testcase name="start" classname="SharedBillsSplitterTestStage4" time="7.35"/>
+  <testcase name="start" classname="SharedBillsSplitterTestStage5" time="8.797"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 > someRandomText
@@ -33,7 +33,6 @@ Start test 4?[0m
 Start test 5?[0m
 > borrow Ann Bob 1.00
 > 3030.03.30 purchase Bob coffee 3.50 (Bob, Ann)
-[Bob, Ann]
 > writeOff
 > balance close
 No repayments
@@ -45,9 +44,7 @@ No repayments
 Start test 6?[0m
 > writeOff
 > group create TEAM (Diana, Elon, Bob, Ann)
-[Diana, Elon, Bob, Ann]
 > purchase Elon icecream 4.80 (TEAM)
-[Ann, Bob, Diana, Elon]
 > borrow Ann Bob 1.05
 > repay Ann Bob 5.01
 > exit
@@ -100,110 +97,101 @@ Elon owes Diana 12.00
 ?[1;31m
 Start test 9?[0m
 > writeOff
-> borrow Carlos Elon 196.14
-> repay Elon Finny 131.67
-> borrow Annabelle Carlos 52.63
-> repay Finny Diana 164.85
-> repay Diana Finny 88.6
-> repay Carlos Billibob 98.9
-> repay Diana Carlos 98.79
-> repay Carlos Finny 182.1
-> repay Annabelle Carlos 48.64
-> repay Carlos Annabelle 110.73
-> repay Finny Carlos 70.92
-> borrow Diana Carlos 99.97
-> borrow Billibob Annabelle 183.32
-> borrow Billibob Elon 122.9
-> borrow Finny Elon 47.93
-> repay Annabelle Finny 182.39
-> repay Billibob Diana 117.75
-> repay Billibob Elon 51.68
-> borrow Billibob Annabelle 197.44
-> repay Elon Finny 181.44
-> borrow Elon Diana 3.90
-> repay Annabelle Finny 162.91
-> borrow Billibob Annabelle 103.19
-> repay Carlos Billibob 180.76
-> repay Finny Annabelle 134.52
-> repay Diana Annabelle 100.27
-> borrow Diana Billibob 83.24
-> borrow Billibob Carlos 127.37
-> repay Billibob Annabelle 194.5
-> repay Annabelle Billibob 18.96
-> borrow Annabelle Diana 122.38
-> repay Billibob Carlos 117.25
-> borrow Finny Diana 30.35
-> borrow Finny Diana 51.44
-> repay Elon Annabelle 146.62
-> borrow Finny Annabelle 69.48
-> repay Finny Billibob 49.25
-> repay Carlos Finny 29.23
-> borrow Diana Carlos 104.54
-> repay Finny Diana 60.78
-> repay Annabelle Billibob 186.84
-> repay Billibob Elon 73.94
-> repay Elon Carlos 101.95
-> borrow Finny Elon 187.15
-> borrow Carlos Elon 97.36
-> repay Finny Carlos 105.68
-> borrow Finny Annabelle 37.97
-> repay Carlos Finny 105.36
-> borrow Elon Annabelle 70.26
-> repay Carlos Elon 101.8
-> repay Billibob Elon 46.16
-> borrow Diana Elon 4.19
-> repay Carlos Diana 15.82
-> repay Annabelle Billibob 45.55
-> repay Billibob Finny 99.45
-> repay Annabelle Carlos 184.31
-> repay Annabelle Billibob 164.47
-> borrow Diana Billibob 173.33
-> repay Diana Finny 148.53
-> borrow Elon Finny 148.48
-> repay Elon Annabelle 158.72
-> repay Carlos Annabelle 182.26
-> borrow Carlos Diana 93.51
-> borrow Billibob Elon 145.84
-> repay Elon Finny 152.83
-> repay Billibob Carlos 143.31
-> repay Carlos Diana 44.29
-> borrow Finny Billibob 63.88
-> repay Annabelle Billibob 90.58
-> borrow Finny Billibob 12.47
-> repay Finny Carlos 71.22
-> borrow Carlos Elon 190.49
-> repay Billibob Elon 118.4
-> borrow Carlos Diana 199.2
-> borrow Carlos Billibob 73.46
-> borrow Elon Annabelle 31.50
-> repay Billibob Diana 181.37
-> borrow Billibob Finny 120.52
-> repay Diana Elon 35.47
-> borrow Billibob Annabelle 173.52
-> repay Carlos Billibob 153.33
-> borrow Finny Diana 88.95
-> borrow Billibob Diana 16.18
-> borrow Finny Elon 79.5
-> repay Carlos Finny 125.32
-> repay Diana Billibob 74.26
-> repay Elon Diana 95.13
-> repay Carlos Finny 199.93
+> borrow Billibob Finny 172.62
+> repay Elon Annabelle 96.34
+> borrow Carlos Annabelle 185.63
+> borrow Billibob Finny 60.4
+> borrow Billibob Finny 107.31
+> borrow Elon Finny 178.58
+> borrow Elon Finny 15.4
+> borrow Finny Annabelle 112.75
+> borrow Annabelle Elon 169.40
+> repay Annabelle Elon 3.1
+> borrow Elon Annabelle 77.18
+> repay Elon Finny 37.1
+> repay Diana Billibob 33.37
+> borrow Carlos Billibob 92.86
+> borrow Annabelle Billibob 176.41
+> repay Elon Annabelle 121.20
+> borrow Carlos Annabelle 111.39
+> repay Carlos Billibob 30.85
+> repay Billibob Annabelle 66.26
+> borrow Billibob Finny 48.57
+> borrow Diana Finny 102.90
+> repay Elon Annabelle 35.16
+> repay Carlos Annabelle 87.28
+> borrow Annabelle Billibob 47.13
+> borrow Elon Billibob 1.84
+> borrow Annabelle Billibob 187.82
+> borrow Diana Elon 182.75
+> borrow Elon Finny 63.24
+> borrow Finny Carlos 16.80
+> borrow Billibob Annabelle 184.46
+> borrow Elon Carlos 112.30
+> repay Elon Diana 180.85
+> repay Elon Diana 122.13
+> repay Annabelle Billibob 70.4
+> repay Finny Carlos 6.57
+> borrow Annabelle Carlos 160.87
+> repay Annabelle Billibob 117.15
+> borrow Elon Billibob 147.61
+> repay Diana Billibob 25.9
+> repay Billibob Carlos 135.13
+> repay Billibob Carlos 62.23
+> repay Carlos Billibob 134.75
+> repay Carlos Annabelle 102.47
+> repay Annabelle Carlos 8.21
+> repay Carlos Diana 90.56
+> repay Carlos Billibob 8.64
+> repay Finny Carlos 169.34
+> repay Diana Elon 33.82
+> repay Elon Annabelle 56.83
+> borrow Carlos Finny 122.24
+> borrow Diana Carlos 152.76
+> borrow Finny Elon 123.61
+> borrow Elon Annabelle 161.13
+> borrow Billibob Annabelle 19.88
+> repay Carlos Billibob 87.59
+> repay Finny Elon 167.68
+> repay Annabelle Diana 44.90
+> repay Diana Billibob 1.5
+> borrow Diana Billibob 29.50
+> borrow Carlos Finny 80.59
+> borrow Billibob Annabelle 15.0
+> repay Carlos Billibob 129.52
+> borrow Billibob Annabelle 196.47
+> borrow Elon Finny 165.72
+> borrow Elon Carlos 132.73
+> repay Billibob Finny 117.12
+> repay Elon Billibob 128.98
+> borrow Annabelle Billibob 74.71
+> borrow Finny Annabelle 172.14
+> borrow Diana Finny 7.3
+> repay Billibob Finny 51.98
+> borrow Carlos Diana 36.35
+> repay Carlos Annabelle 15.19
+> repay Finny Carlos 2.73
+> repay Carlos Annabelle 148.13
+> repay Carlos Diana 196.86
+> borrow Billibob Annabelle 26.34
+> borrow Diana Finny 165.69
+> repay Elon Annabelle 5.55
 > balance close
-Annabelle owes Carlos 112.67
-Annabelle owes Diana 222.65
-Annabelle owes Elon 203.58
-Billibob owes Annabelle 969.37
-Billibob owes Carlos 226.34
-Carlos owes Diana 126.88
-Carlos owes Elon 484.14
-Diana owes Billibob 465.25
-Diana owes Elon 59.95
-Elon owes Billibob 21.44
-Finny owes Annabelle 318.23
-Finny owes Billibob 6.03
-Finny owes Carlos 394.12
-Finny owes Diana 182.24
-Finny owes Elon 632.04
+Annabelle owes Carlos 208.71
+Annabelle owes Elon 243.07
+Billibob owes Annabelle 77.37
+Billibob owes Carlos 101.13
+Billibob owes Diana 31.27
+Billibob owes Finny 219.80
+Carlos owes Finny 364.67
+Diana owes Annabelle 44.90
+Diana owes Carlos 403.83
+Diana owes Elon 451.91
+Diana owes Finny 275.89
+Elon owes Billibob 20.47
+Elon owes Carlos 245.03
+Elon owes Finny 429.91
+Finny owes Annabelle 284.89
 > exit
 ?[1;31m
 Start test 10?[0m
@@ -212,7 +200,6 @@ Illegal command arguments
 > group show NOTFOUNDGROUP
 Unknown group
 > group create BOYS (Elon, Bob, Chuck)
-[Elon, Bob, Chuck]
 > group show BOYS
 Bob
 Chuck
@@ -222,9 +209,7 @@ Elon
 Start test 11?[0m
 > writeOff
 > group create COFFEETEAM (Ann, Bob)
-[Ann, Bob]
 > purchase Bob coffee 10 (COFFEETEAM)
-[Ann, Bob]
 > balance close
 Ann owes Bob 5.00
 > repay Ann Bob 5.00
@@ -235,9 +220,7 @@ No repayments
 Start test 12?[0m
 > writeOff
 > group create FRIENDS (Ann, Bob, Chuck)
-[Ann, Bob, Chuck]
 > purchase Elon chocolate 12.50 (FRIENDS)
-[Ann, Bob, Chuck]
 > balance close
 Ann owes Elon 4.17
 Bob owes Elon 4.17
@@ -247,15 +230,10 @@ Chuck owes Elon 4.16
 Start test 13?[0m
 > writeOff
 > group create BOYS (Elon, Bob, Chuck)
-[Elon, Bob, Chuck]
 > group create GIRLS (Ann, Diana)
-[Ann, Diana]
 > 2020.10.20 purchase Diana flowers 15.65 (BOYS)
-[Bob, Chuck, Elon]
 > 2020.10.21 purchase Chuck chocolate 6.30 (BOYS)
-[Bob, Chuck, Elon]
 > 2020.10.22 purchase Bob icecream 3.99 (GIRLS)
-[Ann, Diana]
 > balance close
 Ann owes Bob 2.00
 Bob owes Chuck 2.10
@@ -267,9 +245,7 @@ Elon owes Diana 5.21
 ?[1;31m
 Start test 14?[0m
 > group create GIRLS (Ann, Diana)
-[Ann, Diana]
 > group create TEAM (+Bob, GIRLS, -Frank, Chuck)
-[Bob, Ann, Diana, -Frank, Chuck]
 > group show TEAM
 Ann
 Bob
@@ -280,13 +256,9 @@ Diana
 Start test 15?[0m
 > writeOff
 > group create GIRLS (Ann, Diana)
-[Ann, Diana]
 > group create TEAM (+Bob, GIRLS, -Frank, Chuck)
-[Bob, Ann, Diana, -Frank, Chuck]
 > 2020.10.20 purchase Diana flowers 15.65 (TEAM, Elon, -GIRLS)
-[Ann, Bob, Chuck, Diana, Elon, -Ann, -Diana]
 > 2020.10.21 purchase Elon ChuckBirthdayGift 20.99 (TEAM, -Chuck)
-[Ann, Bob, Chuck, Diana, -Chuck]
 > balance close
 Ann owes Elon 7.00
 Bob owes Diana 5.22
@@ -298,23 +270,18 @@ Diana owes Elon 1.78
 Start test 16?[0m
 > writeOff
 > group create SOMEGROUP (Bob, -Bob)
-[Bob, -Bob]
 > group show SOMEGROUP
 Group is empty
 > group add SOMEGROUP (Bob)
-[Bob]
 > group remove SOMEGROUP (Bob)
-[Bob]
 > group show SOMEGROUP
 Group is empty
 > group create ANOTHERGROUP (SOMEGROUP)
-[]
 > group show ANOTHERGROUP
 Group is empty
 > 2020.10.21 purchase Elon chocolate 6.30 (SOMEGROUP)
-[]
 Group is empty
-2023-10-16 15:34:09.213 ERROR 23438 --- [           Main] o.s.boot.SpringApplication               : Application run failed
+2023-10-17 22:30:41.845 ERROR 29203 --- [           Main] o.s.boot.SpringApplication               : Application run failed
 
 org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 0.
 	at org.hyperskill.hstest.dynamic.input.DynamicInputHandler.ejectChar(DynamicInputHandler.java:34) ~[hs-test-release-SNAPSHOT.jar:na]
@@ -335,7 +302,7 @@ org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-2.5.6.jar:2.5.6]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332) ~[spring-boot-2.5.6.jar:2.5.6]
 	at splitter.Main.main(Main.java:21) ~[main/:na]
-	at jdk.internal.reflect.GeneratedMethodAccessor127.invoke(Unknown Source) ~[na:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor126.invoke(Unknown Source) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
 	at org.hyperskill.hstest.testing.execution.MainMethodExecutor.invokeMain(MainMethodExecutor.java:160) ~[hs-test-release-SNAPSHOT.jar:na]
@@ -349,15 +316,10 @@ org.hyperskill.hstest.dynamic.security.ExitException: Tried to exit with status 
 ?[1;31m
 Start test 17?[0m
 > group create SOMEGROUP (Bob)
-[Bob]
 > group create GIRLS (Ann, Diana)
-[Ann, Diana]
 > group create BOYS (Bob, Chuck, Elon)
-[Bob, Chuck, Elon]
 > group add SOMEGROUP (GIRLS, Frank)
-[Ann, Diana, Frank, Bob]
 > group remove SOMEGROUP (-BOYS, Bob, +Frank)
-[-Bob, -Chuck, -Elon, Bob, Frank]
 > group show SOMEGROUP
 Ann
 Bob
@@ -366,23 +328,20 @@ Diana
 ?[1;31m
 Start test 18?[0m
 > group create SOMESANTAGROUP (Gordon,Bob,Ann,Chuck,Elon,Diana,Foxy)
-[Gordon,Bob,Ann,Chuck,Elon,Diana,Foxy]
 > secretSanta SOMESANTAGROUP
-Ann gift to Chuck
-Diana gift to Bob
-Gordon gift to Diana
-Bob gift to Gordon
-Elon gift to Foxy
-Chuck gift to Elon
-Foxy gift to Ann
+Ann gift to Bob
+Bob gift to Foxy
+Chuck gift to Gordon
+Diana gift to Ann
+Elon gift to Chuck
+Foxy gift to Diana
+Gordon gift to Elon
 > exit
 ?[1;31m
 Start test 19?[0m
 > writeOff
 > group create TEAM (Bob, Ann, Frank, Chuck, Elon, Diana)
-[Bob, Ann, Frank, Chuck, Elon, Diana]
 > 2020.12.25 cashBack YourCompany secretSantaGift 24.00 (TEAM)
-[Ann, Bob, Chuck, Diana, Elon, Frank]
 > 2020.12.25 balance close
 YourCompany owes Ann 4.00
 YourCompany owes Bob 4.00
@@ -390,6 +349,59 @@ YourCompany owes Chuck 4.00
 YourCompany owes Diana 4.00
 YourCompany owes Elon 4.00
 YourCompany owes Frank 4.00
+> exit
+?[1;31m
+Start test 20?[0m
+> writeOff
+> group create TEAM (Ann, Bob, Chuck, Diana, Elon, Frank)
+> group create CAR (Diana, Elon)
+> group create BUS (Ann, Bob, Chuck, Frank)
+> purchase Chuck busTickets 5.25 (BUS, -Frank)
+> purchase Elon fuel 25 (CAR, Frank)
+> purchase Ann chocolate 2.99 (BUS, -Bob, CAR)
+> purchase Diana soda 5.45 (TEAM, -Ann, -Chuck)
+> purchase Frank bbq 29.90 (TEAM, CAR, BUS, -Frank, -Bob)
+> cashBack YourCompany party 12 (TEAM, BUS)
+> cashBack YourCompany tickets 3.50 (BUS)
+> borrow Frank Bob 10
+> repay Chuck Diana 20
+> balance close
+Ann owes Chuck 1.15
+Ann owes Frank 6.89
+Bob owes Chuck 1.75
+Bob owes Diana 1.37
+Chuck owes Frank 7.48
+Diana owes Ann 0.60
+Diana owes Chuck 20.00
+Diana owes Elon 6.98
+Diana owes Frank 6.11
+Elon owes Ann 0.60
+Frank owes Bob 10.00
+Frank owes Elon 0.86
+YourCompany owes Ann 2.88
+YourCompany owes Bob 2.88
+YourCompany owes Chuck 2.87
+YourCompany owes Diana 2.00
+YourCompany owes Elon 2.00
+YourCompany owes Frank 2.87
+> exit
+?[1;31m
+Start test 21?[0m
+> writeOff
+> group create BOBTEAM (Frank, Bob)
+> group create AGROUP (Bob, -Bob)
+> purchase Ann coffee 12.00 (Chuck, Ann, Bob)
+> balance close (Bob, Ann)
+Bob owes Ann 4.00
+> balance close (-Bob, BOBTEAM)
+No repayments
+> balance close (AGROUP)
+Group is empty
+Bob owes Ann 4.00
+Chuck owes Ann 4.00
+> balance close (GROUPIDIDNOTCREATE)
+Group does not exist
+No repayments
 > exit
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

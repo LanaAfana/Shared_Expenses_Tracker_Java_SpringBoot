@@ -66,7 +66,7 @@ public class Main implements CommandLineRunner {
                     continue;
                 }
                 if (cmd.contains("balance")) {
-                    operator.doBalance(cmdList);
+                    operator.doBalance(cmd);
                     continue;
                 }
                 if (cmd.contains("borrow ")) {

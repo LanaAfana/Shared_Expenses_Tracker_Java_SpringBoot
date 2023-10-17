@@ -34,7 +34,7 @@ public class SharedExpensesOperator {
             List<String> listTo = new ArrayList<>();
             Map<String, String> map = new HashMap<>();
 
-            for (String participant : list.stream().sorted().toList()) {
+            for (String participant : list) {
                 map.put(participant, "");
                 listTo.add(participant);
             }
@@ -56,7 +56,12 @@ public class SharedExpensesOperator {
                     listTo.remove(idx);
                 }
             }
-            map.forEach((k, v) -> System.out.printf("%s gift to %s%n", k, v));
+            listTo.clear();
+            map.forEach((k, v) -> listTo.add(k));
+
+            listTo.stream()
+                    .sorted()
+                    .forEach(el -> System.out.printf("%s gift to %s%n", el, map.get(el)));
         }
     }
 
@@ -75,6 +80,10 @@ public class SharedExpensesOperator {
             boolean isRemoved = elem.charAt(0) == '-';
             String name = elem.replace("-", "");
             if (Group.isAGroup(name)) {
+                if (service.findGroupByName(name).isEmpty()) {
+                    System.out.println("Group does not exist");
+                    break;
+                }
                 iterator.remove();
                 for (String el : service.findGroupByName(name).get().getParticipants()) {
                     if (isRemoved) {
@@ -86,7 +95,7 @@ public class SharedExpensesOperator {
             }
 
         }
-        System.out.println(list);
+
         Set<String> removeParticipants = new HashSet<>(list.stream()
                 .filter(x -> x.contains("-"))
                 .map(x -> x.replace("-", ""))
@@ -157,6 +166,19 @@ public class SharedExpensesOperator {
         }
     }
 
+    private double getSum(String strSum, int qty) {
+        return new BigDecimal(Double.parseDouble(strSum)
+                / qty)
+                .setScale(2, RoundingMode.HALF_UP)
+                .doubleValue();
+    }
+
+    private double getResum(String strSum, int qty) {
+        return new BigDecimal(getSum(strSum, qty) * qty - Double.parseDouble(strSum))
+                .setScale(2, RoundingMode.HALF_DOWN)
+                .doubleValue();
+    }
+
     public void doPurchase(String cmd) {
         if (Transaction.isValidP2G(cmd, "purchase")) {
             String[] cmdList = cmd.substring(0, cmd.indexOf("(")).split("\\s+");
@@ -170,27 +192,55 @@ public class SharedExpensesOperator {
             if (qtyParticipants == 0) {
                 System.out.println("Group is empty");
             } else {
-                double sum = Double.parseDouble(cmdList[shift + 3].trim())
-                        / qtyParticipants;
-                for (int i = 0; i < qtyParticipants; i++) {
-                    String participant = participantsList.get(i);
-                    if (participant.equals(acc_credit)) {
-                        continue;
+                double sum = getSum(cmdList[shift + 3].trim(), qtyParticipants);
+                double reSum = getResum(cmdList[shift + 3].trim(), qtyParticipants);
+                if (reSum > 0.00) {
+                    for (int i = qtyParticipants - 1; i >= 0; i--) {
+                        String participant = participantsList.get(i);
+                        if (participant.equals(acc_credit)) {
+                            continue;
+                        }
+                        double accSum = sum;
+                        if (reSum > 0.0) {
+                            reSum = reSum - 0.01;
+                            accSum = new BigDecimal(sum - 0.01)
+                                    .setScale(2, RoundingMode.HALF_UP)
+                                    .doubleValue();
+                        }
+                        service.saveTransaction(new Transaction(date,
+                                participant,
+                                acc_credit,
+                                accSum));
                     }
-                    if (i == qtyParticipants - 1) {
-                        sum = Double.parseDouble(cmdList[shift + 3].trim()) - new BigDecimal(sum)
-                                .setScale(2, RoundingMode.HALF_UP)
-                                .doubleValue() * (qtyParticipants - 1);
-                    } else {
-                        sum = new BigDecimal(sum)
-                                .setScale(2, RoundingMode.HALF_UP)
-                                .doubleValue();
+                } else if (reSum < 0.00) {
+                    for (int i = 0; i < qtyParticipants; i++) {
+                        String participant = participantsList.get(i);
+                        if (participant.equals(acc_credit)) {
+                            continue;
+                        }
+                        double accSum = sum;
+                        if (reSum < 0.00) {
+                            reSum = reSum + 0.01;
+                            accSum = new BigDecimal(sum + 0.01)
+                                    .setScale(2, RoundingMode.HALF_UP)
+                                    .doubleValue();
+                        }
+                        service.saveTransaction(new Transaction(date,
+                                participant,
+                                acc_credit,
+                                accSum));
                     }
-
-                    service.saveTransaction(new Transaction(date,
-                            participant,
-                            acc_credit,
-                            sum));
+                } else {
+                    for (int i = 0; i < qtyParticipants; i++) {
+                        String participant = participantsList.get(i);
+                        if (participant.equals(acc_credit)) {
+                            continue;
+                        }
+                        service.saveTransaction(new Transaction(date,
+                                participant,
+                                acc_credit,
+                                sum));
+                    }
                 }
             }
         } else {
@@ -222,10 +272,11 @@ public class SharedExpensesOperator {
         }
     }
 
-    public void doBalance(String[] cmdList) {
+    public void doBalance(String cmd) {
 
-        if (Transaction.isValidBalance(cmdList)) {
+        if (Transaction.isValidBalance(cmd)) {
             LocalDate date;
+            String[] cmdList = cmd.split("\\(")[0].trim().split("\\s+");
             if (cmdList[1].equals("balance")) {
                 date = LocalDate.parse(cmdList[0].replace('.', '-'));
                 if (cmdList.length == 3 && cmdList[2].equals("open"))
@@ -242,6 +293,7 @@ public class SharedExpensesOperator {
                 if (trsc.getDate().isAfter(date)) {
                     continue;
                 }
+
                 if (result.isEmpty()) {
                     result.add(new Transaction(trsc.getId(),
                             trsc.getDate(),
@@ -273,17 +325,17 @@ public class SharedExpensesOperator {
                             trsc.getSum()));
                 }
             }
-            outputBalance();
+            outputBalance(cmd);
         } else {
             printCmdError();
         }
     }
 
-    private void outputBalance() {
+    private void outputBalance(String cmd) {
         boolean hasRepayments = false;
         List<Transaction> resList = new ArrayList<>();
 
-        for (Transaction rec : result.stream().toList()) {
+        for (Transaction rec : result) {
             double sum = BigDecimal.valueOf(rec.getSum())
                     .setScale(2, RoundingMode.HALF_UP)
                     .doubleValue();
@@ -299,6 +351,18 @@ public class SharedExpensesOperator {
             }
         }
         if (hasRepayments) {
+            if (cmd.contains("(")) {
+                List<String> participantsList = getAllParticipants(cmd);
+                if (participantsList.isEmpty()) {
+                    System.out.println("Group is empty");
+                } else {
+                    resList = resList.stream()
+                            .filter(tr -> participantsList.contains(tr.getAcc_debit()))
+                            .toList();
+                    if (resList.isEmpty()) System.out.println("No repayments");
+                }
+            }
+
             resList.stream()
                     .sorted(Comparator.comparing(Transaction::getAcc_credit))
                     .sorted(Comparator.comparing(Transaction::getAcc_debit))
@@ -322,10 +386,10 @@ public class SharedExpensesOperator {
     }
 
     public void doCashback(String cmd) {
-        if (Transaction.isValidP2G(cmd, "writeOff")) {
-            String[] cmdList = cmd.substring(0, cmd.indexOf("(")).split("\\s+");
+        if (Transaction.isValidP2G(cmd, "cashBack")) {
+            String[] cmdList = cmd.substring(0, cmd.indexOf("(")).trim().split("\\s+");
             int shift = cmdList.length == 4 ? 0 : 1;
-            LocalDate date = cmdList[0].matches("writeOff") ?
+            LocalDate date = cmdList[0].matches("cashBack") ?
                     LocalDate.now() :
                     LocalDate.parse(cmdList[0].replace('.', '-'));
             String acc_debet = cmdList[shift + 1].trim();
@@ -334,25 +398,19 @@ public class SharedExpensesOperator {
             if (qtyParticipants == 0) {
                 System.out.println("Group is empty");
             } else {
-                double sum = Double.parseDouble(cmdList[shift + 3].trim())
-                        / qtyParticipants;
-                for (int i = 0; i < qtyParticipants; i++) {
+                double sum = getSum(cmdList[shift + 3].trim(), qtyParticipants);
+                double reSum = getResum(cmdList[shift + 3].trim(), qtyParticipants);
+                for (int i = qtyParticipants - 1; i >= 0; i--) {
                     String participant = participantsList.get(i);
-
-                    if (i == qtyParticipants - 1) {
-                        sum = Double.parseDouble(cmdList[shift + 3].trim()) - new BigDecimal(sum)
-                                .setScale(2, RoundingMode.HALF_UP)
-                                .doubleValue() * (qtyParticipants - 1);
-                    } else {
-                        sum = new BigDecimal(sum)
-                                .setScale(2, RoundingMode.HALF_UP)
-                                .doubleValue();
+                    double accSum = sum;
+                    if (reSum > 0) {
+                        accSum = sum - 0.01;
+                        reSum = reSum - 0.01;
                     }
-
                     service.saveTransaction(new Transaction(date,
                             acc_debet,
                             participant,
-                            sum));
+                            accSum));
                 }
             }
         } else {

@@ -19,8 +19,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
-public class SharedBillsSplitterTestStage4 extends StageTest {
+public class SharedBillsSplitterTestStage5 extends StageTest {
 
+    public static final String FILTERED_BALANCE_FEEDBACK = "Program should output balance result for persons who contains if filter. However owes values should be the same as if balance were unfiltered.";
     private static final String UNKNOWN_COMMAND = "Unknown command";
     private static final String EXIT_ERROR = "Your program should stop after exit command";
     private static final String HELP_ERROR = "Help command should print all commands line by line in natural order";
@@ -44,7 +45,8 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
 
     private final String databasePath;
 
-    public SharedBillsSplitterTestStage4() {
+    public SharedBillsSplitterTestStage5() {
+
         databasePath = "../testDB" + ".mv.db";
     }
 
@@ -145,9 +147,8 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                                              .setInput("someRandomText\n" +
                                                                "exit")),
 
-                caseToDynamicTesting(new SimpleTestCase("" +
-                                                                "repay Ann\n" +
-                                                                "exit",
+                caseToDynamicTesting(new SimpleTestCase("repay Ann\n" +
+                                                        "exit",
                                                         ILLEGAL_COMMAND_ARGUMENTS)
                                              .setFeedback(ILLEGAL_ARGUMENTS_ERROR)),
 
@@ -209,8 +210,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                         main.start();
                         String groupResult = main.execute("group show TEAM");
                         if (!equalsByLines(groupResult, concatLines("Ann", "Bob", "Diana", "Elon"))) {
-                            return CheckResult.wrong(GROUP_PERSONS_FEEDBACK +
-                                                             ". Also person and group should be stored in database");
+                            return CheckResult.wrong(GROUP_PERSONS_FEEDBACK + ". Also person and group should be stored in database");
                         }
                         String balanceResult = main.execute("balance close");
                         if (!equalsByLines(balanceResult, """
@@ -218,8 +218,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                             Bob owes Ann 3.96
                             Bob owes Elon 1.20
                             Diana owes Elon 1.20""")) {
-                            return CheckResult.wrong(BALANCE_OWES_FEEDBACK +
-                                   " Also all payment operations should be stored in database");
+                            return CheckResult.wrong(BALANCE_OWES_FEEDBACK + " Also all payment operations should be stored in database");
                         }
                         main.execute("exit");
                     }
@@ -349,9 +348,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                             continue;
                         }
                         Commands command;
-                        BigDecimal amount = new BigDecimal(String.format(
-                                "%d.%d", random.nextInt(200), random.nextInt(99)));
-
+                        BigDecimal amount = new BigDecimal(String.format("%d.%d", random.nextInt(200), random.nextInt(99)));
                         if (random.nextBoolean()) {
                             command = Commands.borrow;
                             if (personFrom.equals(keyPerson)) {
@@ -391,6 +388,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                     return CheckResult.wrong(WRONG_CALCULATIONS);
                 }),
 
+
                 new TestCase<String>().setDynamicTesting(() -> {
                     TestedProgram main = new TestedProgram();
                     ((MainMethodExecutor) main.getProgramExecutor()).setUseSeparateClassLoader(false);
@@ -402,8 +400,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                     }
                     if (!main.execute("group show NOTFOUNDGROUP").contains(UNKNOWN_GROUP)) {
                         return CheckResult.wrong(
-                                String.format("It should be printed \"%s\" if the group have not been created yet",
-                                    UNKNOWN_GROUP));
+                                String.format("It should be printed \"%s\" if the group have not been created yet", UNKNOWN_GROUP));
                     }
 
                     main.execute("group create BOYS (Elon, Bob, Chuck)");
@@ -497,9 +494,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                         Bob
                         Chuck
                         Diana""")) {
-                        return CheckResult.wrong(
-                                "Program should include Bob, " +
-                                        "Chuck and persons from GIRLS, also Frank should be excluded");
+                        return CheckResult.wrong("Program should include Bob, Chuck and persons from GIRLS, also Frank should be excluded");
                     }
 
                     main.execute("exit");
@@ -623,7 +618,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                     String secretSantaResult = main.execute("secretSanta SOMESANTAGROUP");
 
                     if (!secretSantaResult.lines().allMatch(it -> it.contains(GIFT_TO))) {
-                        return CheckResult.wrong("Each line should contain \" gift to \"");
+                        return CheckResult.wrong("Each line should contains \" gift to \"");
                     }
                     List<Integer> sendersList = new ArrayList<>();
                     List<Integer> receiversList = new ArrayList<>();
@@ -634,18 +629,15 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                                          receiversList.add(map.get(it[1]));
                                      });
                     if (sendersList.size() != persons.size() || !isSorted(sendersList)) {
-                        return CheckResult.wrong(
-                                "Program should print persons who will gift to someone in ascending order");
+                        return CheckResult.wrong("Program should print persons who will gift to someone in ascending order");
                     }
                     for (int i = 0; i < sendersList.size(); i++) {
                         if (sendersList.get(i).equals(receiversList.get(i)) && sendersList.size() > 1) {
-                            return CheckResult.wrong(
-                                    "Person should not gift a present to himself (in groups larger than 1)");
+                            return CheckResult.wrong("Person should not gift a present to himself (in groups larger than 1)");
                         }
                         Integer receiverId = receiversList.get(i);
                         if (sendersList.get(receiverId) == i && sendersList.size() > 2) {
-                            return CheckResult.wrong(
-                                    "Person should not gift and receive a present from the same other person (in groups larger than 2)");
+                            return CheckResult.wrong("Person should not gift and receive a present from the same other person (in groups larger than 2)");
                         }
                     }
                     main.execute("exit");
@@ -671,7 +663,89 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
                     }
                     main.execute("exit");
                     return CheckResult.correct();
+                }),
+
+                new TestCase<String>().setDynamicTesting(() -> {
+                    TestedProgram main = new TestedProgram();
+                    ((MainMethodExecutor) main.getProgramExecutor()).setUseSeparateClassLoader(false);
+                    main.start();
+                    strToLinesTrimmed("""
+                        writeOff
+                        group create TEAM (Ann, Bob, Chuck, Diana, Elon, Frank)
+                        group create CAR (Diana, Elon)
+                        group create BUS (Ann, Bob, Chuck, Frank)
+                        purchase Chuck busTickets 5.25 (BUS, -Frank)
+                        purchase Elon fuel 25 (CAR, Frank)
+                        purchase Ann chocolate 2.99 (BUS, -Bob, CAR)
+                        purchase Diana soda 5.45 (TEAM, -Ann, -Chuck)
+                        purchase Frank bbq 29.90 (TEAM, CAR, BUS, -Frank, -Bob)
+                        cashBack YourCompany party 12 (TEAM, BUS)
+                        cashBack YourCompany tickets 3.50 (BUS)
+                        borrow Frank Bob 10
+                        repay Chuck Diana 20""")
+                            .forEach(main::execute);
+                    String balanceResult = main.execute("balance close");
+                    if (!equalsByLines(balanceResult, """
+                        Ann owes Chuck 1.15
+                        Ann owes Frank 6.89
+                        Bob owes Chuck 1.75
+                        Bob owes Diana 1.37
+                        Chuck owes Frank 7.48
+                        Diana owes Ann 0.60
+                        Diana owes Chuck 20.00
+                        Diana owes Elon 6.98
+                        Diana owes Frank 6.11
+                        Elon owes Ann 0.60
+                        Frank owes Bob 10.00
+                        Frank owes Elon 0.86
+                        YourCompany owes Ann 2.88
+                        YourCompany owes Bob 2.88
+                        YourCompany owes Chuck 2.87
+                        YourCompany owes Diana 2.00
+                        YourCompany owes Elon 2.00
+                        YourCompany owes Frank 2.87""")) {
+                        return CheckResult.wrong(WRONG_CALCULATIONS);
+                    }
+                    main.execute("exit");
+                    return CheckResult.correct();
+                }),
+
+                new TestCase<String>().setDynamicTesting(() -> {
+                    TestedProgram main = new TestedProgram();
+                    ((MainMethodExecutor) main.getProgramExecutor()).setUseSeparateClassLoader(false);
+                    main.start();
+                    main.execute("writeOff");
+                    main.execute("group create BOBTEAM (Frank, Bob)");
+                    main.execute("group create AGROUP (Bob, -Bob)");
+                    main.execute("purchase Ann coffee 12.00 (Chuck, Ann, Bob)");
+                    {
+                        String balanceResult = main.execute("balance close (Bob, Ann)");
+                        if (!equalsByLines(balanceResult, "Bob owes Ann 4.00")) {
+                            return CheckResult.wrong(FILTERED_BALANCE_FEEDBACK);
+                        }
+                    }
+                    {
+                        String balanceResult = main.execute("balance close (-Bob, BOBTEAM)");
+                        if (!equalsByLines(balanceResult, NO_REPAYMENTS)) {
+                            return CheckResult.wrong(String.format("Program should output \"%s\" if no one person in filter have owes", NO_REPAYMENTS));
+                        }
+                    }
+                    {
+                        String balanceResult = main.execute("balance close (AGROUP)").trim().toLowerCase();
+                        if (!balanceResult.contains("group is empty")) {
+                            return CheckResult.wrong("Program should output \"Group is empty\" if the balance command is entered on an empty group");
+                        }
+                    }
+                    {
+                        String balanceResult = main.execute("balance close (GROUPIDIDNOTCREATE)").trim().toLowerCase();
+                        if (!balanceResult.contains("not exist")) {
+                            return CheckResult.wrong("Program should output \"Group does not exist\" if the balance command is entered on a group that has not been created.");
+                        }
+                    }
+                    main.execute("exit");
+                    return CheckResult.correct();
                 })
+
 
         );
     }
@@ -722,8 +796,7 @@ public class SharedBillsSplitterTestStage4 extends StageTest {
             Commands command = Commands.valueOf(reply);
         } catch (IllegalArgumentException e) {
             if (!reply.toLowerCase().startsWith(UNKNOWN_COMMAND.toLowerCase())) {
-                return CheckResult.wrong(String.format("For unknown command output should start with: %s",
-                    UNKNOWN_COMMAND));
+                return CheckResult.wrong(String.format("For unknown command output should starts with: %s", UNKNOWN_COMMAND));
             }
         }
         return CheckResult.correct();

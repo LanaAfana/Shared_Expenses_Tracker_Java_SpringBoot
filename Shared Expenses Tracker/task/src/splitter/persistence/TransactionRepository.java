@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import splitter.Transaction;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Transactional
 @Repository

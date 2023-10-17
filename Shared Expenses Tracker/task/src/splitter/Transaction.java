@@ -53,7 +53,8 @@ public class Transaction implements Serializable {
 
 
 
-    static public boolean isValidBalance(String[] cmdList) {
+    static public boolean isValidBalance(String cmd) {
+        String[] cmdList = cmd.split("\\(")[0].trim().split("\\s+");
         return (cmdList.length != 1 || cmdList[0].equals("balance"))
                 && (cmdList.length != 2 || (cmdList[0].equals("balance") || cmdList[1].equals("balance")))
                 && (cmdList.length != 3 || (cmdList[1].equals("balance") && cmdList[2].matches("open|close")));
